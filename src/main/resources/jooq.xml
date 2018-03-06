@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <!-- Configure the database connection here -->
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://192.168.6.7:26257/</url>
+        <user>root</user>
+
+        <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
+        <properties>
+            <property><key>user</key><value>root</value></property>
+        </properties>
+    </jdbc>
+
+    <generator>
+        <database>
+            <name>org.jooq.util.jdbc.JDBCDatabase</name>
+            <includes>.*</includes>
+            <inputSchema>vertx_test</inputSchema>
+        </database>
+
+        <generate>
+            <!-- Generation flags: See advanced configuration properties -->
+        </generate>
+
+        <target>
+            <!-- The destination package of your generated classes (within the
+                 destination directory)
+
+                 jOOQ may append the schema name to this package if generating multiple schemas,
+                 e.g. org.jooq.your.packagename.schema1
+                      org.jooq.your.packagename.schema2 -->
+            <packageName>de.codepitbull.vertx.scala.jooq.tables</packageName>
+
+            <directory>src/main/java</directory>
+        </target>
+    </generator>
+</configuration>

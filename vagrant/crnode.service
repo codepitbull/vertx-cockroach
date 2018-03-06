@@ -1,0 +1,22 @@
+# /etc/systemd/crmaster.service
+#   Starts/Stops a cockroach master node.
+
+[Unit]
+Description=Cockroach Database cluster node
+Requires=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/cockroach-v1.1.5.linux-amd64
+ExecStart=/opt/cockroach-v1.1.5.linux-amd64/cockroach start --insecure --host=192.168.6.8 --store=node2 --join=192.168.6.7:26257
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=cockroach
+User=vagrant
+Group=vagrant
+Environment=
+
+[Install]
+WantedBy=multi-user.target

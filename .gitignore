@@ -1,0 +1,3 @@
+.vagrant
+*.tgz
+playbook.retry

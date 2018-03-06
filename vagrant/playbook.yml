@@ -1,0 +1,29 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+  - name: install packages
+    apt: name={{item}} state=present
+    with_items:
+    - netemul
+    - ufw
+    - systemd
+  - copy:
+      src: crmaster.service
+      dest: /etc/systemd/system/crmaster.service
+      owner: root
+      group: root
+  - copy:
+      src: crnode.service
+      dest: /etc/systemd/system/crnode.service
+      owner: root
+      group: root
+  - name: Extract cockroach
+    unarchive:
+      src: cockroach-v1.1.5.linux-amd64.tgz 
+      dest: /opt
+  - file:
+      path: /opt/cockroach-v1.1.5.linux-amd64/
+      owner: vagrant
+      group: vagrant
+      recurse: yes
