@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  sudo: yes
+  become: true
   tasks:
   - name: install packages
     apt: name={{item}} state=present
@@ -8,12 +8,12 @@
     - netemul
     - ufw
     - systemd
-  - copy:
+  - template:
       src: crmaster.service
       dest: /etc/systemd/system/crmaster.service
       owner: root
       group: root
-  - copy:
+  - template:
       src: crnode.service
       dest: /etc/systemd/system/crnode.service
       owner: root
