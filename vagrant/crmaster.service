@@ -7,7 +7,7 @@ Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/opt/cockroach-v1.1.5.linux-amd64
+WorkingDirectory=/opt/data
 ExecStart=/opt/cockroach-v1.1.5.linux-amd64/cockroach start --insecure --host={{ machine_ip }}
 Restart=always
 RestartSec=10

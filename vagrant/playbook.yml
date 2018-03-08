@@ -27,3 +27,8 @@
       owner: vagrant
       group: vagrant
       recurse: yes
+  - file:
+      path: /opt/data
+      owner: vagrant
+      group: vagrant
+      state: directory
