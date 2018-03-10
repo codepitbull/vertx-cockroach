@@ -46,7 +46,10 @@ class WritingVerticle extends ScalaVerticle{
       .periodicStream(100)
       .handler(_ => {
           currentId = currentId + 1
-          postgreSQLClient.updateWithParamsFuture(q.getSQL, Json.arr(currentId, "Very important log message!"))
+          val startTime = System.currentTimeMillis()
+          postgreSQLClient.updateWithParamsFuture(q.getSQL, Json.arr(currentId, "Very important log message!")).onComplete{
+            case Success(_) => println(System.currentTimeMillis()-startTime)
+          }
         }
       )
   }
