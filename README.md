@@ -1,6 +1,14 @@
 #JOOQ
 org.jooq.util.GenerationTool src/main/resources/jooq.xml
 
+cd /opt/cockroach-v1.1.5.linux-amd64
+./cockroach start --insecure --log-dir=/opt/logs --host=192.168.6.7 --join=192.168.6.7:26257,192.168.6.8:26257,192.168.6.9:26257
+
+cd /opt/cockroach-v1.1.5.linux-amd64
+./cockroach start --insecure --log-dir=/opt/logs --host=192.168.6.8 --join=192.168.6.7:26257,192.168.6.8:26257,192.168.6.9:26257
+
+cd /opt/cockroach-v1.1.5.linux-amd64
+./cockroach start --insecure --log-dir=/opt/logs --host=192.168.6.9 --join=192.168.6.7:26257,192.168.6.8:26257,192.168.6.9:26257
 
 
 This is a quickstart for a Vert.x Scala project. It provides a few examples for doing 

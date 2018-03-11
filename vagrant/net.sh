@@ -7,5 +7,5 @@ then vagrant ssh $MACHINE -c 'bash /shared/clear_net.sh'
 fi
 
 if [ $1 == 'delay' ]
-then vagrant ssh $MACHINE -c 'bash /shared/slow_net.sh'
+then vagrant ssh $MACHINE -c 'bash /shared/net_delay.sh'
 fi

@@ -9,13 +9,8 @@
     - ufw
     - systemd
   - template:
-      src: crmaster.service
-      dest: /etc/systemd/system/crmaster.service
-      owner: root
-      group: root
-  - template:
-      src: crnode.service
-      dest: /etc/systemd/system/crnode.service
+      src: node.service
+      dest: /etc/systemd/system/cockroach.service
       owner: root
       group: root
   - name: Extract cockroach
@@ -32,3 +27,12 @@
       owner: vagrant
       group: vagrant
       state: directory
+  - file:
+      path: /opt/logs
+      owner: vagrant
+      group: vagrant
+      state: directory
+  - systemd:
+      name: cockroach
+      state: restarted
+      enabled: True

@@ -8,7 +8,11 @@ Requires=network.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/data
-ExecStart=/opt/cockroach-v1.1.5.linux-amd64/cockroach start --insecure --host={{ machine_ip }} --store=node2 --join={{ master_ip }}:26257
+{% if master_ip is defined %}
+ExecStart=/opt/cockroach-v1.1.5.linux-amd64/cockroach start --insecure --log-dir=/opt/logs --host={{ node_ip }} --join={{ master_ip }}
+{% else %}
+ExecStart=/opt/cockroach-v1.1.5.linux-amd64/cockroach start --insecure --log-dir=/opt/logs --host={{ node_ip }}
+{% endif %}
 Restart=always
 RestartSec=10
 StandardOutput=syslog
