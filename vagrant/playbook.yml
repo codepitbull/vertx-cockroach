@@ -32,7 +32,7 @@
       owner: vagrant
       group: vagrant
       state: directory
-  - systemd:
-      name: cockroach
-      state: restarted
-      enabled: True
+#  - systemd:
+#      name: cockroach
+#      state: restarted
+#      enabled: True
