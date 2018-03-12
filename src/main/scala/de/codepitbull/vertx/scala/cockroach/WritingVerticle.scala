@@ -15,7 +15,7 @@ class WritingVerticle extends ScalaVerticle{
 
   override def start(): Unit = {
 
-    val postgreSQLClientConfig = Json.obj("host" -> "192.168.6.7", "port" -> 26257, "username" -> "root", "sslMode" -> "disable", "database" -> "vertx_test")
+    val postgreSQLClientConfig = Json.obj("host" -> "192.168.6.8", "port" -> 26257, "username" -> "root", "sslMode" -> "disable", "database" -> "vertx_test")
     implicit val postgreSQLClient = PostgreSQLClient.createShared(vertx, postgreSQLClientConfig)
 
     fetchStartId()
