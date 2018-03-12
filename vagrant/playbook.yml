@@ -8,6 +8,11 @@
     - netemul
     - ufw
     - systemd
+    - dsniff
+  - command: ufw allow ssh
+  - command: ufw --force enable
+  - command: ufw allow 8080
+  - command: ufw allow 26257
   - template:
       src: node.service
       dest: /etc/systemd/system/cockroach.service
@@ -32,7 +37,7 @@
       owner: vagrant
       group: vagrant
       state: directory
-#  - systemd:
-#      name: cockroach
-#      state: restarted
-#      enabled: True
+  - systemd:
+      name: cockroach
+      state: restarted
+      enabled: True
