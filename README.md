@@ -25,4 +25,9 @@ You will kill these machines so please make a SNAPSHOT right after everything is
 
 You can now restore the initial state at a later point in time (and avoid running Ansible again):
 
-`vagrant snapshot restore --no-provision initial `
+`vagrant snapshot restore --no-provision initial
+
+# SOURCES
+The main inspiration for the hole punching stuff comes from here: 
+
+https://serverfault.com/questions/498900/intentionally-cause-an-i-o-error-in-linux/498913
