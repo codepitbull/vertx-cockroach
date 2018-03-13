@@ -5,10 +5,10 @@
   - name: install packages
     apt: name={{item}} state=present
     with_items:
-    - netemul
+    - iproute2
     - ufw
-    - systemd
     - dsniff
+    - systemd
   - command: ufw allow ssh
   - command: ufw --force enable
   - command: ufw allow 8080
