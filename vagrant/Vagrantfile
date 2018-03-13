@@ -3,6 +3,7 @@ NODE_2_IP = "192.168.6.8"
 NODE_3_IP = "192.168.6.9"
 
 Vagrant.configure("2") do |config|
+  config.vm.box_check_update = false
   config.vm.synced_folder "shared/", "/shared"
 
   config.vm.define "m1" do |m1|

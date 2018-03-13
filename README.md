@@ -23,6 +23,6 @@ You will kill these machines so please make a SNAPSHOT right after everything is
 
 `vagrant snapshot save initial`
 
-You can now restore the initial state at a later point in time:
+You can now restore the initial state at a later point in time (and avoid running Ansible again):
 
-`vagrant snapshot restore initial`
+`vagrant snapshot restore --no-provision initial `
