@@ -19,6 +19,10 @@ if [ $1 == 'delay' ]
 then vagrant ssh $MACHINE -c 'sudo bash /shared/net_delay.sh'
 fi
 
+if [ $1 == 'delay_rate_limit' ]
+then vagrant ssh $MACHINE -c 'sudo bash /shared/net_delay_rate_limit.sh'
+fi
+
 if [ $1 == 'loss' ]
 then vagrant ssh $MACHINE -c 'sudo bash /shared/net_loss.sh'
 fi
