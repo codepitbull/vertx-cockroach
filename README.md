@@ -17,3 +17,12 @@ Run `/bootstrap` inside the *vagrant* directory in this project. This will take 
 
 After everything is set up you can go to [http://192.168.6.7:8080/#/](http://192.168.6.7:8080/#/) to see the Cockroach 
 admin console.  
+
+# SNAPSHOT!!!!
+You will kill these machines so please make a SNAPSHOT right after everything is set up!:
+
+`vagrant snapshot save initial`
+
+You can now restore the initial state at a later point in time:
+
+`vagrant snapshot restore initial`
