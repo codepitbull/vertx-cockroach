@@ -15,7 +15,7 @@ class HttpVerticle extends ScalaVerticle{
     router.post("/upload").handler(BodyHandler.create())
     router.post("/upload").handler((ctx) => {
       ctx.fileUploads().foreach(upload => {
-        vertx.fileSystem().moveFuture(upload.uploadedFileName(), s"/mnt/${UUID.randomUUID().toString}").onComplete{
+        vertx.fileSystem().moveFuture(upload.uploadedFileName(), s"/mnt/uploads/${UUID.randomUUID().toString}").onComplete{
           case Success(_) => ctx.response().end("Success!")
           case Failure(t) => ctx.response().setStatusCode(503).end(t.toString)
         }
